@@ -1,0 +1,4279 @@
+openapi: 3.1.0
+info:
+  title: Willhaben API
+  description: |-
+    This is a WIP documentation for the API powering the popular second-hand marketplace [Willhaben](https://de.wikipedia.org/wiki/Willhaben).
+  version: 0.1.0
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: https://api.geizhals.net
+security:
+  - ApiKeyAuth: []
+paths:
+  /restapi/v2/application-data:
+    post:
+      summary: Generate application token
+      description: "Instructions to create the request body -> [applicationTokenRequest.md](https://github.com/vernoxvernax/willhaben-api/blob/main/applicationTokenRequest.md)"
+      operationId: "application-data"
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/applicationTokenRequest'
+      responses:
+        '200':
+          description: Operation successful. Returning an ApplicationData object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationData'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  
+  /restapi/v2/storyblok/apps/{id}:
+    get:
+      operationId: "getStoryBlokByID"
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful. Returning an getStoryBlokAppsByIDRes object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getStoryBlokAppsByIDRes'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /v2/search/atz/seo/kaufen-und-verkaufen/verkaeuferprofil/{id}:
+    get:
+      operationId: getVerkaueferProfilByID
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: xtor
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: topicId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: srcType
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: srcAdd
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: rows
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful. Returning a getVerkaueferProfilByID object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getVerkaueferProfilByID'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/search/atz/seo/kaufen-und-verkaufen/marktplatz:
+    get:
+      operationId: getMarkplatz
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: isNavigation
+          in: query
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Operation successful. Returning a getMarktplatz object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getMarktplatz'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/imagesearch/atz:
+    get:
+      operationId: getATZImageSearch
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: adId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: imageId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: imageUrl
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ATTRIBUTE_TREE
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: rows
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful. Returning a getATZImageSearch object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getATZImageSearch'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/sellerprofile/{id}/{id1}/profile:
+    get:
+      operationId: getSellerProfile
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id1
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful. Returning a getSellerProfile object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSellerProfile'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/search/atz/{id}/{id1}:
+    get:
+      operationId: getSearchATZ
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id1
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: orgId
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Operation successful. Returning a getSearchATZ object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSearchATZ'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/search/atz/seo/kaufen-und-verkaufen/marktplatz/{category}:
+    get:
+      operationId: searchMarkplatzCategory
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: category
+          in: path
+          required: false
+          schema:
+            type: string
+            default: "computer-tablets-5828"
+        - name: paylivery
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: filterCategoryId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: number
+            enum: [1, 2, 3, 4, 5]
+            description: "`1` - Latest\n`2` - Nearby\n`3` - Price Asc.\n`4` - Price Desc.\n`5` - Relevance"
+        - name: rows
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: chosenCategoryId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: isNavigation
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: chosenKeyword
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sfId
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: treeAttributes
+          in: query
+          required: false
+          schema:
+            type: integer
+            description: "Enables the use of category specific filters. You can find all possible filters in the response of a request to this endpoint. Look for the keyword `ATTRIBUTE_TREE`"
+      responses:
+        '200':
+          description: Operation successful. Returning a getMarktplatz object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getMarktplatz'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+  
+  /atdetail/v1/{id}:
+    get:
+      operationId: getProductByID
+      description: "**Attention!** This request uses a different server url!"
+      summary: Unknown application
+      servers:
+        - url: https://public.willhaben.at
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful. Returning a getProductByID object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getProductByID'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/search/attributes:
+    get:
+      operationId: getAttributes
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: categoryId
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: attributeXmlCode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: navigatorId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: searchQueryParams
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful. Returning a getAttributes object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAttributes'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+  /restapi/v2/recommendation/search/{id}/{id2}:
+    get:
+      operationId: getRecommendations
+      summary: Unknown application
+      parameters:
+        - name: user-agent
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+        - name: accept
+          in: header
+          required: false
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: content-type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["application/json"]
+        - name: x-wh-date
+          in: header
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: ["1970-01-01T01:00:01+0100"]
+        - name: x-wh-client
+          in: header
+          required: true
+          schema:
+            type: string
+            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+        - name: x-wh-visitor-id
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: x-wh-security-version
+          in: header
+          required: false
+          schema:
+            type: integer
+            example: [20130527022532]
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id2
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: absoluteImageUrls
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operation successful. Returning a getRecommendations object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getRecommendations'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: "x-wh-application-token"
+  schemas:
+    applicationTokenRequest:
+      type: object
+      properties:
+        organization:
+          type: string
+          default: "api@tailored-apps.com"
+        salt:
+          type: string
+        signature:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+          default: "1970-01-01T01:00:01+0100"
+    ContextLink:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          description:
+            type: string
+          uri:
+            type: string
+          selected:
+            type: boolean
+          relativePath:
+            type: string
+          serviceName:
+            type: string
+    NameValuePair:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          value:
+            type: string
+    SearchConfigList:
+      type: [object, "null"]
+      properties:
+        searchConfig:
+          type: array
+          items:
+            type: object
+            properties:
+              searchId:
+                type: integer
+              description:
+                type: string
+              verticalId:
+                type: integer
+              searchkey:
+                type: string
+              nrOfAdverts:
+                type: integer
+              sortOrderDefault:
+                type: integer
+              searchSortOrderList:
+                type: object
+                properties:
+                  searchSortOrder:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        description:
+                          type: string
+                        searchConfigId:
+                          type: string
+              taggingData:
+                type: object
+                properties:
+                  taggingNames:
+                    type: object
+                    properties:
+                      nameValuePair:
+                        $ref: '#/components/schemas/NameValuePair'
+                  tmsDataValues:
+                    type: ["null"]
+                  pulseData:
+                    type: ["null"]
+                  neustarTaggingData:
+                    type: ["null"]
+              selfLink:
+                type: string
+              parentLink:
+                type: string
+              searchLink:
+                type: string
+              contextLinkList:
+                type: object
+                properties:
+                  contextLink:
+                    $ref: '#/components/schemas/ContextLink'
+              iconUrlSvg:
+                type: [string, "null"]
+              iconUrlPng:
+                type: [string, "null"]
+              isInterLink:
+                type: boolean
+              quickLaunchNavigators:
+                type: ["null"]
+        tmsDataValues:
+          type: object
+          properties:
+            tmsData:
+              type: object
+        pianoTaggingPlan:
+          type: object
+          properties:
+            prodConfigAndroid:
+              type: object
+              properties:
+                collectDomain:
+                  type: string
+                site:
+                  type: string
+                sessionBackgroundDuration:
+                  type: integer
+            devConfigAndroid:
+              type: object
+              properties:
+                collectDomain:
+                  type: string
+                site:
+                  type: string
+                sessionBackgroundDuration:
+                  type: integer
+            prodConfigiOS:
+              type: object
+              properties:
+                collectDomain:
+                  type: string
+                site:
+                  type: string
+                sessionBackgroundDuration:
+                  type: integer
+            devConfigiOS:
+              type: object
+              properties:
+                collectDomain:
+                  type: string
+                site:
+                  type: string
+                sessionBackgroundDuration:
+                  type: integer
+            taggingPlan:
+              type: object
+              properties:
+                screensTaggingPlan:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      _uid:
+                        type: string
+                      component:
+                        type: string
+                      screenName:
+                        type: string
+                      pianoTaggingSummaryEvents:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            _uid:
+                              type: string
+                            name:
+                              type: string
+                            component:
+                              type: string
+                            pianoTaggingEvents:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  _uid:
+                                    type: string
+                                  click:
+                                    type: string
+                                  action:
+                                    type: string
+                                  component:
+                                    type: string
+                                  site_level2:
+                                    type: string
+                                  click_app_key:
+                                    type: [string, "null"]
+                                  user_category:
+                                    type: array
+                                    items:
+                                      type: string
+                                  click_chapter1:
+                                    type: string
+                                  click_chapter2:
+                                    type: string
+                                  click-chatper3:
+                                    type: string
+                                  click-chapter1_app_key:
+                                    type: string
+                                  click-chapter2_app_key:
+                                    type: string
+                                  click-chapter3_app_key:
+                                    type: string
+                                  requireBackendTaggingData:
+                                    type: boolean
+    ApplicationData:
+      type: object
+      properties:
+        applicationToken:
+          type: object
+          properties:
+            value:
+              type: string
+            expireDate:
+              type: string
+              format: date-time
+            expireInSeconds:
+              type: integer
+        rootLinkList:
+          type: [object, "null"]
+          properties:
+            contextLink:
+              $ref: '#/components/schemas/ContextLink'
+        searchConfigList:
+          $ref: '#/components/schemas/SearchConfigList'
+        cmsArticleList:
+          type: object
+          properties:
+            contextLink:
+              $ref: '#/components/schemas/ContextLink'
+        bapCategoryList:
+          type: ["null"]
+        textsList:
+          type: object
+          properties:
+            nameValuePair:
+              $ref: '#/components/schemas/NameValuePair'
+        appConfigList:
+          type: object
+          properties:
+            nameValuePair:
+              $ref: '#/components/schemas/NameValuePair'
+        imageSearchInfo:
+          type: object
+          properties:
+            showWindowShopperTeaser:
+              type: boolean
+            serviceAvailable:
+              type: boolean
+            fashionTeaserText:
+              type: ["null"]
+            fashionTeaserSvgUrl:
+              type: ["null"]
+            fashionTeaserPng2xUrl:
+              type: ["null"]
+            landingPageHeadline:
+              type: ["null"]
+            landingPageSublineWithBoldMarkup:
+              type: ["null"]
+            landingPageImageUrl:
+              type: ["null"]
+            windowShopperSearchContextLinkList:
+              type: ["null"]
+            genericWindowShopperSearchContextLink:
+              type: object
+              properties:
+                id:
+                  type: string
+                description:
+                  type: string
+                uri:
+                  type: string
+                selected:
+                  type: boolean
+                relativePath:
+                  type: string
+                serviceName:
+                  type: string
+        searchConfigGroupList:
+          $ref: '#/components/schemas/SearchConfigList'
+        advertisingMigrationState:
+          type: ["null"]
+        advertisingConfig:
+          type: object
+          properties:
+            matches:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  rule:
+                    type: object
+                    properties:
+                      connective:
+                        type: string
+                      terms:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            relation:
+                              type: string
+                            variable:
+                              type: string
+                            value:
+                              type: object
+                              properties:
+                                value:
+                                  type: string
+                                type:
+                                  type: string
+                  attributes:
+                    type: object
+                    properties:
+                      sizes:
+                        type: object
+                        properties:
+                          value:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                height:
+                                  type: integer
+                                width:
+                                  type: integer
+                          type:
+                            type: string
+                      understitialWindowHeight:
+                        type: object
+                        properties:
+                          value:
+                            type: integer
+                          type:
+                            type: string
+                      appnexusId:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                          type:
+                            type: string
+                      googleId:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                          type:
+                            type: string
+                      amazonId:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                          type:
+                            type: string
+                      criteoId:
+                        type: object
+                        properties:
+                          value:  
+                            type: string
+                          type:
+                            type: string
+                      yocId:
+                        type: object
+                        properties:
+                          value:  
+                            type: string
+                          type:
+                            type: string
+                      amazonSize:
+                        type: object
+                        properties:
+                          value:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                height:
+                                  type: integer
+                                width:
+                                  type: integer
+                          type:
+                            type: string
+                      googleSizes:
+                        type: object
+                        properties:
+                          value:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                height:
+                                  type: integer
+                                width:
+                                  type: integer
+                          type:
+                            type: string
+                      visxId:
+                        type: object
+                        properties:
+                          value:
+                            type: string
+                          type:
+                            type: string
+        stateList:
+          type: array
+          items:
+            type: object
+            properties:
+              areaId:
+                type: integer
+              name:
+                type: string
+              districtList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    areaId:
+                      type: string
+                    name: 
+                      type: string
+    Unauthorized:
+      type: object
+      properties:
+        title:
+          type: string
+          default: "Login fehlgeschlagen"
+        message:
+          type: string
+          default: "Die angegebene E-Mail Adresse bzw. das Passwort konnten nicht erkannt werden."
+        errors:
+          type: array
+    getStoryBlokAppsByIDRes:
+      type: object
+      properties:
+        story:
+          type: object
+          properties:
+            name:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            published_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            id:
+              type: number
+            uuid:
+              type: string
+              format: uuid
+            content:
+              type: object
+              properties:
+                _uid:
+                  type: string
+                  format: uuid
+                test:
+                  type: string
+                  format: uuid
+                component:
+                  type: string
+                bapStartPage:
+                  type: string
+                autoMotorStartPage:
+                  type: string
+                  format: uuid
+                realEstateStartPage:
+                  type: string
+                  format: uuid
+            slug:
+              type: string
+            full_slug:
+              type: string
+            sort_by_date:
+              type: [object, "null"]
+            position:
+              type: number
+            tag_list:
+              type: array
+              items: {}
+            is_startpage:
+              type: boolean
+            parent_id:
+              type: number
+            meta_data:
+              type: [object, "null"]
+            group_id:
+              type: string
+              format: uuid
+            first_published_at:
+              type: string
+              format: date-time
+            release_id:
+              type: [object, "null"]
+            lang:
+              type: string
+            path:
+              type: [object, "null"]
+            alternates:
+              type: array
+              items: {}
+            default_full_slug:
+              type: [object, "null"]
+            translated_slugs:
+              type: [object, "null"]
+        cv:
+          type: number
+        rels:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+    getVerkaueferProfilByID:
+      type: object
+      properties:
+        id:
+          type: number
+        description:
+          type: string
+        heading:
+          type: string
+        verticalId:
+          type: number
+        searchId:
+          type: number
+        rowsRequested:
+          type: number
+        rowsFound:
+          type: number
+        rowsReturned:
+          type: number
+        pageRequested:
+          type: number
+        searchDate:
+          type: string
+        lastUserAlertViewedDate:
+          type: [object, "null"]
+        newAdsSeparatorPosition:
+          type: [object, "null"]
+        advertSummaryList:
+          type: object
+          properties:
+            advertSummary:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  verticalId:
+                    type: number
+                  adTypeId:
+                    type: number
+                  productId:
+                    type: number
+                  advertStatus:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      description:
+                        type: string
+                      statusId:
+                        type: number
+                  description:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      attribute:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            values:
+                              type: array
+                              items:
+                                type: string
+                  advertImageList:
+                    type: object
+                    properties:
+                      advertImage:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            selfLink:
+                              type: string
+                            description:
+                              type: string
+                            mainImageUrl:
+                              type: string
+                            thumbnailImageUrl:
+                              type: string
+                            referenceImageUrl:
+                              type: string
+                            similarImageSearchUrl:
+                              type: [object, "null"]
+                            reference:
+                              type: string
+                      floorPlans:
+                        type: array
+                        items: {}
+                  selfLink:
+                    type: string
+                  contextLinkList:
+                    type: object
+                    properties:
+                      contextLink:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                  advertiserInfo:
+                    type: object
+                    properties:
+                      label:
+                        type: [object, "null"]
+                      iconSVG:
+                        type: [object, "null"]
+                      iconPNG:
+                        type: [object, "null"]
+                      iconType:
+                        type: string
+                  upsellingOrganisationLogo:
+                    type: [object, "null"]
+                  teaserAttributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        prefix:
+                          type: [object, "null"]
+                        value:
+                          type: [object, "null"]
+                        postfix:
+                          type: string
+                  children:
+                    type: [object, "null"]
+        breadcrumbs:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              seoUrl:
+                type: string
+        navigatorGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              navigatorList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    label:
+                      type: string
+                    possibleValues:
+                      type: array
+                      items: {}
+                    groupedPossibleValues:
+                      type: array
+                      items: {}
+                    selectedValues:
+                      type: array
+                      items: {}
+                    navigatorType:
+                      type: string
+                    navigatorSelectionType:
+                      type: string
+                    urlConstructionInformation:
+                      type: object
+                      properties:
+                        baseUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                        urlParams:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              urlParameterName:
+                                type: string
+                              navigatorUrlParameterType:
+                                type: string
+                    resetAllInformation:
+                      type: object
+                      properties:
+                        resetAllUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                    navigatorValuesDisplayType:
+                      type: string
+                    metaTags:
+                      type: array
+                      items:
+                        type: string
+                    navigatorValuesDisplayStyle:
+                      type: array
+                      items:
+                        type: string
+                    metadata:
+                      type: object
+                      properties:
+                        parameterName:
+                          type: string
+        searchExcludeList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        pagingLinksList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        sortOrderList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        searchContextLinks:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties:
+                    environment:
+                      type: string
+                    search_results_number:
+                      type: string
+                    ad_type:
+                      type: string
+                    page_type:
+                      type: string
+                    category_level_max:
+                      type: string
+                    search_results_displaycount:
+                      type: string
+                    event_name:
+                      type: string
+                    search_results_page:
+                      type: string
+                    vertical_id:
+                      type: string
+                    vertical:
+                      type: string
+                    source:
+                      type: string
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      id:
+                        type: number
+                      contentId:
+                        type: number
+                      name:
+                        type: string
+                      adType:
+                        type: string
+                      items:
+                        type: array
+                        items: {}
+                      classifiedAdObjects:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            id:
+                              type: number
+                            adId:
+                              type: number
+                            adUuid:
+                              type: string
+                            publisher:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                accountId:
+                                  type: string
+                                type:
+                                  type: string
+                      numItems:
+                        type: number
+                      category:
+                        type: string
+                      filters:
+                        type: object
+                        properties:
+                          adType:
+                            type: string
+                          sorting:
+                            type: string
+                          numResults:
+                            type: string
+                      search:
+                        type: object
+                        properties:
+                          '@id':
+                            type: string
+                          '@type':
+                            type: string
+                          maxRank:
+                            type: number
+                          offset:
+                            type: number
+                          genericSearchFilters:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                values:
+                                  type: array
+                                  items:
+                                    type: string
+                          searchConfigId:
+                            type: number
+                          searchOrigin:
+                            type: object
+                            properties:
+                              origin:
+                                type: string
+                              additional:
+                                type: string
+            neustarTaggingData:
+              type: object
+              properties:
+                mainCategory:
+                  type: string
+                vertical:
+                  type: string
+                device:
+                  type: string
+        seoMetaData:
+          type: [object, "null"]
+        autocompleteLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        searchTitle:
+          type: string
+        searchSubTitle:
+          type: string
+        advertisingParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            topicId:
+              type: number
+            search_alert:
+              type: string
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: string
+            vertical:
+              type: string
+            device:
+              type: string
+            orgid:
+              type: number
+        advertisingParametersV2:
+          type: [object, "null"]
+        dmpParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            topicId:
+              type: number
+            search_alert:
+              type: boolean
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: boolean
+            vertical:
+              type: string
+            device:
+              type: string
+            orgid:
+              type: number
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        metaData:
+          type: object
+          properties:
+            viewMode:
+              type: string
+            defaultPageSize:
+              type: number
+        statistics:
+          type: [object, "null"]
+
+    getMarktplatz:
+      type: object
+      properties:
+        id:
+          type: number
+        description:
+          type: string
+        heading:
+          type: string
+        verticalId:
+          type: number
+        searchId:
+          type: number
+        rowsRequested:
+          type: number
+        rowsFound:
+          type: number
+        rowsReturned:
+          type: number
+        pageRequested:
+          type: number
+        searchDate:
+          type: string
+        lastUserAlertViewedDate:
+          type: [object, "null"]
+        newAdsSeparatorPosition:
+          type: [object, "null"]
+        advertSummaryList:
+          type: object
+          properties:
+            advertSummary:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  verticalId:
+                    type: number
+                  adTypeId:
+                    type: number
+                  productId:
+                    type: number
+                  advertStatus:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      description:
+                        type: string
+                      statusId:
+                        type: number
+                  description:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      attribute:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            values:
+                              type: array
+                              items:
+                                type: string
+                  advertImageList:
+                    type: object
+                    properties:
+                      advertImage:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            selfLink:
+                              type: string
+                            description:
+                              type: string
+                            mainImageUrl:
+                              type: string
+                            thumbnailImageUrl:
+                              type: string
+                            referenceImageUrl:
+                              type: string
+                            similarImageSearchUrl:
+                              type: [object, "null"]
+                            reference:
+                              type: string
+                      floorPlans:
+                        type: array
+                        items: {}
+                  selfLink:
+                    type: string
+                  contextLinkList:
+                    type: object
+                    properties:
+                      contextLink:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                  advertiserInfo:
+                    type: object
+                    properties:
+                      label:
+                        type: [object, "null"]
+                      iconSVG:
+                        type: [object, "null"]
+                      iconPNG:
+                        type: [object, "null"]
+                      iconType:
+                        type: string
+                  upsellingOrganisationLogo:
+                    type: [object, "null"]
+                  teaserAttributes:
+                    type: array
+                    items: {}
+                  children:
+                    type: [object, "null"]
+        breadcrumbs:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              seoUrl:
+                type: string
+        navigatorGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              navigatorList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    label:
+                      type: string
+                    possibleValues:
+                      type: array
+                      items: {}
+                    groupedPossibleValues:
+                      type: array
+                      items: {}
+                    selectedValues:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          label:
+                            type: string
+                          prePostTextInfo:
+                            type: [object, "null"]
+                          images:
+                            type: array
+                            items: {}
+                          urlParamRepresentationForValue:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                urlParameterName:
+                                  type: string
+                                navigatorUrlParameterType:
+                                  type: string
+                                value:
+                                  type: string
+                          parent:
+                            type: [object, "null"]
+                          parentId:
+                            type: [object, "null"]
+                          parentLabel:
+                            type: [object, "null"]
+                          resetLink:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              description:
+                                type: string
+                              uri:
+                                type: string
+                              selected:
+                                type: boolean
+                              relativePath:
+                                type: string
+                              serviceName:
+                                type: string
+                    navigatorType:
+                      type: string
+                    navigatorSelectionType:
+                      type: string
+                    urlConstructionInformation:
+                      type: object
+                      properties:
+                        baseUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                        urlParams:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              urlParameterName:
+                                type: string
+                              navigatorUrlParameterType:
+                                type: string
+                    resetAllInformation:
+                      type: object
+                      properties:
+                        resetAllUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                    navigatorValuesDisplayType:
+                      type: string
+                    metaTags:
+                      type: array
+                      items:
+                        type: string
+                    navigatorValuesDisplayStyle:
+                      type: array
+                      items:
+                        type: string
+                    metadata:
+                      type: object
+                      properties:
+                        parameterName:
+                          type: string
+        searchExcludeList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        pagingLinksList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        sortOrderList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        searchContextLinks:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties:
+                    search_results_number:
+                      type: string
+                    ad_type:
+                      type: string
+                    page_type:
+                      type: string
+                    vertical_id:
+                      type: string
+                    category_level_id_2:
+                      type: string
+                    vertical:
+                      type: string
+                    category_level_id_1:
+                      type: string
+                    source:
+                      type: string
+                    search_terms:
+                      type: string
+                    category_level_1:
+                      type: string
+                    environment:
+                      type: string
+                    category_level_2:
+                      type: string
+                    category_level_max:
+                      type: string
+                    search_results_displaycount:
+                      type: string
+                    event_name:
+                      type: string
+                    search_results_page:
+                      type: string
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      id:
+                        type: number
+                      contentId:
+                        type: number
+                      name:
+                        type: string
+                      adType:
+                        type: string
+                      items:
+                        type: array
+                        items: {}
+                      classifiedAdObjects:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            id:
+                              type: number
+                            adId:
+                              type: number
+                            adUuid:
+                              type: string
+                            publisher:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                accountId:
+                                  type: string
+                                type:
+                                  type: string
+                      numItems:
+                        type: number
+                      category:
+                        type: string
+                      filters:
+                        type: object
+                        properties:
+                          adType:
+                            type: string
+                          sorting:
+                            type: string
+                          query:
+                            type: string
+                          numResults:
+                            type: string
+                      search:
+                        type: object
+                        properties:
+                          '@id':
+                            type: string
+                          '@type':
+                            type: string
+                          maxRank:
+                            type: number
+                          offset:
+                            type: number
+                          genericSearchFilters:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                values:
+                                  type: array
+                                  items:
+                                    type: string
+                          searchConfigId:
+                            type: number
+            neustarTaggingData:
+              type: object
+              properties:
+                mainCategory:
+                  type: string
+                vertical:
+                  type: string
+                device:
+                  type: string
+        seoMetaData:
+          type: [object, "null"]
+        autocompleteLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        searchTitle:
+          type: string
+        searchSubTitle:
+          type: string
+        advertisingParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: string
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: string
+            vertical:
+              type: string
+            bap_level0:
+              type: string
+            bap_level1:
+              type: string
+            keyword:
+              type: string
+            device:
+              type: string
+        advertisingParametersV2:
+          type: [object, "null"]
+        dmpParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: boolean
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: boolean
+            vertical:
+              type: string
+            bap_level0:
+              type: string
+            bap_level1:
+              type: string
+            keyword:
+              type: string
+            device:
+              type: string
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        metaData:
+          type: object
+          properties:
+            viewMode:
+              type: string
+            defaultPageSize:
+              type: number
+        statistics:
+          type: [object, "null"]
+    
+    getProductByID:
+      type: object
+      properties:
+        widgets:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              listIndex:
+                type: number
+              contextLinkList:
+                type: array
+                items: {}
+              separatorType:
+                type: string
+              padding:
+                type: string
+              advertImageList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: [object, "null"]
+                    coverImage:
+                      type: boolean
+                    selfLink:
+                      type: string
+                    mainImageUrl:
+                      type: string
+                    thumbnailImageUrl:
+                      type: string
+                    referenceImageUrl:
+                      type: string
+                    id:
+                      type: number
+                    description:
+                      type: [object, "null"]
+                    similarImageSearchUrl:
+                      type: [object, "null"]
+              tooltips:
+                type: array
+                items: {}
+        verticalId:
+          type: number
+        adTypeId:
+          type: number
+        productId:
+          type: number
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties:
+                    is_private:
+                      type: string
+                    ad_type:
+                      type: string
+                    page_type:
+                      type: string
+                    region_level_label_1:
+                      type: string
+                    vertical_id:
+                      type: string
+                    vertical:
+                      type: string
+                    source:
+                      type: string
+                    ad_title:
+                      type: string
+                    num_pictures:
+                      type: string
+                    category_level_1:
+                      type: string
+                    region_level_id_2:
+                      type: string
+                    category_level_3:
+                      type: string
+                    region_level_id_3:
+                      type: string
+                    category_level_2:
+                      type: string
+                    seller_name:
+                      type: string
+                    region_level_id_1:
+                      type: string
+                    price:
+                      type: string
+                    product_id:
+                      type: string
+                    category_level_max:
+                      type: string
+                    seller_uuid:
+                      type: string
+                    region_level_2:
+                      type: string
+                    region_level_3:
+                      type: string
+                    seller_id:
+                      type: string
+                    region_level_1:
+                      type: string
+                    ad_type_id:
+                      type: string
+                    category_level_id_3:
+                      type: string
+                    category_level_id_2:
+                      type: string
+                    category_level_id_1:
+                      type: string
+                    exact_price:
+                      type: string
+                    environment:
+                      type: string
+                    ad_id:
+                      type: string
+                    post_code:
+                      type: string
+                    event_name:
+                      type: string
+                    publish_date:
+                      type: string
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      id:
+                        type: number
+                      contentId:
+                        type: number
+                      adId:
+                        type: number
+                      name:
+                        type: string
+                      adType:
+                        type: string
+                      publisherType:
+                        type: string
+                      currency:
+                        type: string
+                      location:
+                        type: object
+                        properties:
+                          postalCode:
+                            type: string
+                          addressLocality:
+                            type: string
+                          addressRegion:
+                            type: string
+                          addressCountry:
+                            type: string
+                      price:
+                        type: string
+                      priceAsNumber:
+                        type: number
+                      category:
+                        type: string
+                      publisherUuid:
+                        type: string
+                      categories:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            localId:
+                              type: string
+                            localName:
+                              type: string
+                            level:
+                              type: number
+                            name:
+                              type: string
+                      adUuid:
+                        type: string
+        advertisingParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            adimageurl:
+              type: string
+            city:
+              type: array
+              items:
+                type: string
+            AdImage:
+              type: string
+            description:
+              type: string
+            vertical:
+              type: string
+            bap_level0:
+              type: string
+            bap_level1:
+              type: string
+            bap_level2:
+              type: string
+            price:
+              type: number
+            willhabencode:
+              type: string
+            payliveryEnabled:
+              type: string
+            state:
+              type: array
+              items:
+                type: string
+            partnerid:
+              type: array
+              items:
+                type: string
+            heading:
+              type: string
+            postcode:
+              type: array
+              items:
+                type: number
+            pt1:
+              type: string
+            orgid:
+              type: number
+            pt5:
+              type: number
+            Marke:
+              type: array
+              items:
+                type: string
+            isAdSavedInFolder:
+              type: string
+            district:
+              type: array
+              items:
+                type: string
+            Zustand:
+              type: array
+              items:
+                type: string
+            device:
+              type: string
+            dealer_2:
+              type: array
+              items:
+                type: string
+            Uebergabe:
+              type: array
+              items:
+                type: string
+        advertisingParametersV2:
+          type: [object, "null"]
+        dmpParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            adimageurl:
+              type: string
+            city:
+              type: array
+              items:
+                type: string
+            AdImage:
+              type: boolean
+            description:
+              type: string
+            vertical:
+              type: string
+            bap_level0:
+              type: string
+            bap_level1:
+              type: string
+            bap_level2:
+              type: string
+            price:
+              type: number
+            willhabencode:
+              type: string
+            payliveryEnabled:
+              type: boolean
+            state:
+              type: array
+              items:
+                type: string
+            partnerid:
+              type: array
+              items:
+                type: string
+            heading:
+              type: string
+            postcode:
+              type: array
+              items:
+                type: number
+            pt1:
+              type: string
+            orgid:
+              type: number
+            pt5:
+              type: number
+            Marke:
+              type: array
+              items:
+                type: string
+            isAdSavedInFolder:
+              type: boolean
+            district:
+              type: array
+              items:
+                type: string
+            Zustand:
+              type: array
+              items:
+                type: string
+            device:
+              type: string
+            dealer_2:
+              type: array
+              items:
+                type: string
+            Uebergabe:
+              type: array
+              items:
+                type: string
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        adId:
+          type: string
+        description:
+          type: string
+        phoneNo:
+          type: string
+        contextLinks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              description:
+                type: string
+              uri:
+                type: string
+              selected:
+                type: boolean
+        status:
+          type: object
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+            description:
+              type: [object, "null"]
+        folderAdDTO:
+          type: object
+          properties:
+            contextLinks:
+              type: [object, "null"]
+            contextLinkList:
+              type: array
+              items: {}
+            savedInFolder:
+              type: boolean
+        messagingInfo:
+          type: object
+          properties:
+            adInfo:
+              type: object
+              properties:
+                id:
+                  type: string
+                subject:
+                  type: string
+                price:
+                  type: string
+                image:
+                  type: string
+            sellerInfo:
+              type: object
+              properties:
+                userUuid:
+                  type: string
+                userName:
+                  type: string
+                userSince:
+                  type: string
+                activeAdCount:
+                  type: number
+        contactOption:
+          type: object
+          properties:
+            contactType:
+              type: string
+            additionalInfo:
+              type: [object, "null"]
+        commercialAd:
+          type: boolean
+
+    getATZImageSearch:
+      type: object
+      properties:
+        id:
+          type: number
+        description:
+          type: string
+        heading:
+          type: string
+        verticalId:
+          type: number
+        searchId:
+          type: number
+        rowsRequested:
+          type: number
+        rowsFound:
+          type: number
+        rowsReturned:
+          type: number
+        pageRequested:
+          type: number
+        searchDate:
+          type: string
+        lastUserAlertViewedDate:
+          type: [object, "null"]
+        newAdsSeparatorPosition:
+          type: [object, "null"]
+        advertSummaryList:
+          type: object
+          properties:
+            advertSummary:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  verticalId:
+                    type: number
+                  adTypeId:
+                    type: number
+                  productId:
+                    type: number
+                  advertStatus:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      description:
+                        type: string
+                      statusId:
+                        type: number
+                  description:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      attribute:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            values:
+                              type: array
+                              items:
+                                type: string
+                  advertImageList:
+                    type: object
+                    properties:
+                      advertImage:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            selfLink:
+                              type: string
+                            description:
+                              type: string
+                            mainImageUrl:
+                              type: string
+                            thumbnailImageUrl:
+                              type: string
+                            referenceImageUrl:
+                              type: string
+                            similarImageSearchUrl:
+                              type: [object, "null"]
+                            reference:
+                              type: string
+                      floorPlans:
+                        type: array
+                        items: {}
+                  selfLink:
+                    type: string
+                  contextLinkList:
+                    type: object
+                    properties:
+                      contextLink:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                  advertiserInfo:
+                    type: object
+                    properties:
+                      label:
+                        type: [object, "null"]
+                      iconSVG:
+                        type: [object, "null"]
+                      iconPNG:
+                        type: [object, "null"]
+                      iconType:
+                        type: string
+                  upsellingOrganisationLogo:
+                    type: [object, "null"]
+                  teaserAttributes:
+                    type: array
+                    items: {}
+                  children:
+                    type: [object, "null"]
+        breadcrumbs:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              seoUrl:
+                type: string
+        navigatorGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              navigatorList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    label:
+                      type: string
+                    possibleValues:
+                      type: array
+                      items: {}
+                    groupedPossibleValues:
+                      type: array
+                      items: {}
+                    selectedValues:
+                      type: array
+                      items: {}
+                    navigatorType:
+                      type: string
+                    navigatorSelectionType:
+                      type: string
+                    urlConstructionInformation:
+                      type: object
+                      properties:
+                        baseUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                        urlParams:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              urlParameterName:
+                                type: string
+                              navigatorUrlParameterType:
+                                type: string
+                    resetAllInformation:
+                      type: object
+                      properties:
+                        resetAllUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                    navigatorValuesDisplayType:
+                      type: string
+                    metaTags:
+                      type: array
+                      items:
+                        type: string
+                    navigatorValuesDisplayStyle:
+                      type: array
+                      items:
+                        type: string
+                    metadata:
+                      type: object
+                      properties:
+                        parameterName:
+                          type: string
+        searchExcludeList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        pagingLinksList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        sortOrderList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        searchContextLinks:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties:
+                    environment:
+                      type: string
+                    search_results_number:
+                      type: string
+                    ad_type:
+                      type: string
+                    page_type:
+                      type: string
+                    category_level_max:
+                      type: string
+                    search_results_displaycount:
+                      type: string
+                    event_name:
+                      type: string
+                    search_results_page:
+                      type: string
+                    vertical_id:
+                      type: string
+                    vertical:
+                      type: string
+                    source:
+                      type: string
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      id:
+                        type: number
+                      contentId:
+                        type: number
+                      name:
+                        type: string
+                      adType:
+                        type: string
+                      items:
+                        type: array
+                        items: {}
+                      classifiedAdObjects:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            id:
+                              type: number
+                            adId:
+                              type: number
+                            adUuid:
+                              type: string
+                            publisher:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                accountId:
+                                  type: string
+                                type:
+                                  type: string
+                      numItems:
+                        type: number
+                      category:
+                        type: string
+                      filters:
+                        type: object
+                        properties:
+                          adType:
+                            type: string
+                          sorting:
+                            type: string
+                          numResults:
+                            type: string
+                      search:
+                        type: object
+                        properties:
+                          '@id':
+                            type: string
+                          '@type':
+                            type: string
+                          maxRank:
+                            type: number
+                          offset:
+                            type: number
+                          genericSearchFilters:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                values:
+                                  type: array
+                                  items:
+                                    type: string
+                          searchConfigId:
+                            type: number
+            neustarTaggingData:
+              type: object
+              properties:
+                mainCategory:
+                  type: string
+                vertical:
+                  type: string
+                device:
+                  type: string
+        seoMetaData:
+          type: [object, "null"]
+        autocompleteLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        searchTitle:
+          type: string
+        searchSubTitle:
+          type: string
+        advertisingParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: string
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: string
+            vertical:
+              type: string
+            device:
+              type: string
+        advertisingParametersV2:
+          type: [object, "null"]
+        dmpParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: boolean
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: boolean
+            vertical:
+              type: string
+            device:
+              type: string
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        metaData:
+          type: object
+          properties:
+            viewMode:
+              type: string
+            defaultPageSize:
+              type: number
+        statistics:
+          type: [object, "null"]
+
+    getAttributes:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              treeAttributeId:
+                type: number
+              label:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    token:
+                      type: string
+                    bold:
+                      type: boolean
+
+    getRecommendations:
+      type: object
+      properties:
+        id:
+          type: number
+        description:
+          type: string
+        heading:
+          type: string
+        verticalId:
+          type: number
+        searchId:
+          type: number
+        rowsRequested:
+          type: number
+        rowsFound:
+          type: number
+        rowsReturned:
+          type: number
+        pageRequested:
+          type: number
+        searchDate:
+          type: string
+        lastUserAlertViewedDate:
+          type: [object, "null"]
+        newAdsSeparatorPosition:
+          type: [object, "null"]
+        advertSummaryList:
+          type: object
+          properties:
+            advertSummary:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  verticalId:
+                    type: number
+                  adTypeId:
+                    type: number
+                  productId:
+                    type: number
+                  advertStatus:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      description:
+                        type: string
+                      statusId:
+                        type: number
+                  description:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      attribute:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            values:
+                              type: array
+                              items:
+                                type: string
+                  advertImageList:
+                    type: object
+                    properties:
+                      advertImage:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            selfLink:
+                              type: string
+                            description:
+                              type: string
+                            mainImageUrl:
+                              type: string
+                            thumbnailImageUrl:
+                              type: string
+                            referenceImageUrl:
+                              type: string
+                            similarImageSearchUrl:
+                              type: [object, "null"]
+                            reference:
+                              type: string
+                      floorPlans:
+                        type: array
+                        items: {}
+                  selfLink:
+                    type: string
+                  contextLinkList:
+                    type: object
+                    properties:
+                      contextLink:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                  advertiserInfo:
+                    type: object
+                    properties:
+                      label:
+                        type: string
+                      iconSVG:
+                        type: [object, "null"]
+                      iconPNG:
+                        type: [object, "null"]
+                      iconType:
+                        type: string
+                  upsellingOrganisationLogo:
+                    type: string
+                  teaserAttributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        prefix:
+                          type: [object, "null"]
+                        value:
+                          type: string
+                        postfix:
+                          type: string
+                  children:
+                    type: [object, "null"]
+        breadcrumbs:
+          type: array
+          items: {}
+        navigatorGroups:
+          type: array
+          items: {}
+        searchExcludeList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        pagingLinksList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        sortOrderList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        searchContextLinks:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items: {}
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties: {}
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items: {}
+            neustarTaggingData:
+              type: [object, "null"]
+              properties:
+                mainCategory:
+                  type: string
+                vertical:
+                  type: string
+                device:
+                  type: string
+        seoMetaData:
+          type: [object, "null"]
+        autocompleteLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        searchTitle:
+          type: string
+        searchSubTitle:
+          type: string
+        advertisingParameters:
+          type: object
+          properties: {}
+        advertisingParametersV2:
+          type: object
+          properties: {}
+        dmpParameters:
+          type: object
+          properties: {}
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        metaData:
+          type: object
+          properties:
+            viewMode:
+              type: [object, "null"]
+            defaultPageSize:
+              type: number
+        statistics:
+          type: object
+          properties: {}
+
+    getSellerProfile:
+      type: object
+      properties:
+        sellerProfile:
+          type: object
+          properties:
+            name:
+              type: string
+            registerDate:
+              type: string
+            location:
+              type: [object, "null"]
+            street:
+              type: string
+            district:
+              type: [object, "null"]
+            orgUUID:
+              type: [object, "null"]
+            pictureUrl:
+              type: string
+            hasProfileImage:
+              type: boolean
+            activeAdCount:
+              type: [object, "null"]
+            private:
+              type: boolean
+        searchResult:
+          type: [object, "null"]
+        contextLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        sellerFollowerDTO:
+          type: object
+          properties:
+            contextLinkList:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+            following:
+              type: boolean
+
+    getSearchATZ:
+      type: object
+      properties:
+        id:
+          type: number
+        description:
+          type: string
+        heading:
+          type: string
+        verticalId:
+          type: number
+        searchId:
+          type: number
+        rowsRequested:
+          type: number
+        rowsFound:
+          type: number
+        rowsReturned:
+          type: number
+        pageRequested:
+          type: number
+        searchDate:
+          type: string
+        lastUserAlertViewedDate:
+          type: [object, "null"]
+        newAdsSeparatorPosition:
+          type: [object, "null"]
+        advertSummaryList:
+          type: object
+          properties:
+            advertSummary:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  verticalId:
+                    type: number
+                  adTypeId:
+                    type: number
+                  productId:
+                    type: number
+                  advertStatus:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      description:
+                        type: string
+                      statusId:
+                        type: number
+                  description:
+                    type: string
+                  attributes:
+                    type: object
+                    properties:
+                      attribute:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            values:
+                              type: array
+                              items:
+                                type: string
+                  advertImageList:
+                    type: object
+                    properties:
+                      advertImage:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            selfLink:
+                              type: string
+                            description:
+                              type: string
+                            mainImageUrl:
+                              type: string
+                            thumbnailImageUrl:
+                              type: string
+                            referenceImageUrl:
+                              type: string
+                            similarImageSearchUrl:
+                              type: [object, "null"]
+                            reference:
+                              type: string
+                      floorPlans:
+                        type: array
+                        items: {}
+                  selfLink:
+                    type: string
+                  contextLinkList:
+                    type: object
+                    properties:
+                      contextLink:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                  advertiserInfo:
+                    type: object
+                    properties:
+                      label:
+                        type: [object, "null"]
+                      iconSVG:
+                        type: [object, "null"]
+                      iconPNG:
+                        type: [object, "null"]
+                      iconType:
+                        type: string
+                  upsellingOrganisationLogo:
+                    type: [object, "null"]
+                  teaserAttributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        prefix:
+                          type: [object, "null"]
+                        value:
+                          type: [object, "null"]
+                        postfix:
+                          type: string
+                  children:
+                    type: [object, "null"]
+        breadcrumbs:
+          type: array
+          items:
+            type: object
+            properties:
+              displayName:
+                type: string
+              seoUrl:
+                type: string
+        navigatorGroups:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              navigatorList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    label:
+                      type: string
+                    possibleValues:
+                      type: array
+                      items: {}
+                    groupedPossibleValues:
+                      type: array
+                      items: {}
+                    selectedValues:
+                      type: array
+                      items: {}
+                    navigatorType:
+                      type: string
+                    navigatorSelectionType:
+                      type: string
+                    urlConstructionInformation:
+                      type: object
+                      properties:
+                        baseUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                        urlParams:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              urlParameterName:
+                                type: string
+                              navigatorUrlParameterType:
+                                type: string
+                    resetAllInformation:
+                      type: object
+                      properties:
+                        resetAllUrl:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            description:
+                              type: string
+                            uri:
+                              type: string
+                            selected:
+                              type: boolean
+                            relativePath:
+                              type: string
+                            serviceName:
+                              type: string
+                    navigatorValuesDisplayType:
+                      type: string
+                    metaTags:
+                      type: array
+                      items:
+                        type: string
+                    navigatorValuesDisplayStyle:
+                      type: array
+                      items:
+                        type: string
+                    metadata:
+                      type: object
+                      properties:
+                        parameterName:
+                          type: string
+        searchExcludeList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        pagingLinksList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        sortOrderList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        searchContextLinks:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  uri:
+                    type: string
+                  selected:
+                    type: boolean
+                  relativePath:
+                    type: string
+                  serviceName:
+                    type: string
+        taggingData:
+          type: object
+          properties:
+            taggingNames:
+              type: object
+              properties:
+                nameValuePair:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+            tmsDataValues:
+              type: object
+              properties:
+                tmsData:
+                  type: object
+                  properties:
+                    environment:
+                      type: string
+                    search_results_number:
+                      type: string
+                    ad_type:
+                      type: string
+                    page_type:
+                      type: string
+                    category_level_max:
+                      type: string
+                    search_results_displaycount:
+                      type: string
+                    event_name:
+                      type: string
+                    search_results_page:
+                      type: string
+                    vertical_id:
+                      type: string
+                    vertical:
+                      type: string
+                    source:
+                      type: string
+            pulseData:
+              type: object
+              properties:
+                pulseEvents:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      id:
+                        type: number
+                      contentId:
+                        type: number
+                      name:
+                        type: string
+                      adType:
+                        type: string
+                      items:
+                        type: array
+                        items: {}
+                      classifiedAdObjects:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            id:
+                              type: number
+                            adId:
+                              type: number
+                            adUuid:
+                              type: string
+                            publisher:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                accountId:
+                                  type: string
+                                type:
+                                  type: string
+                      numItems:
+                        type: number
+                      category:
+                        type: string
+                      filters:
+                        type: object
+                        properties:
+                          adType:
+                            type: string
+                          sorting:
+                            type: string
+                          numResults:
+                            type: string
+                      search:
+                        type: object
+                        properties:
+                          '@id':
+                            type: string
+                          '@type':
+                            type: string
+                          maxRank:
+                            type: number
+                          offset:
+                            type: number
+                          genericSearchFilters:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                values:
+                                  type: array
+                                  items:
+                                    type: string
+                          searchConfigId:
+                            type: number
+            neustarTaggingData:
+              type: object
+              properties:
+                mainCategory:
+                  type: string
+                vertical:
+                  type: string
+                device:
+                  type: string
+        seoMetaData:
+          type: [object, "null"]
+        autocompleteLinkList:
+          type: object
+          properties:
+            contextLink:
+              type: array
+              items: {}
+        searchTitle:
+          type: string
+        searchSubTitle:
+          type: string
+        advertisingParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: string
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: string
+            vertical:
+              type: string
+            device:
+              type: string
+            orgid:
+              type: number
+        advertisingParametersV2:
+          type: [object, "null"]
+        dmpParameters:
+          type: object
+          properties:
+            pagetype:
+              type: string
+            search_alert:
+              type: boolean
+            searchcount:
+              type: number
+            payliveryEnabled:
+              type: boolean
+            vertical:
+              type: string
+            device:
+              type: string
+            orgid:
+              type: number
+        dmpUserIdentities:
+          type: object
+          properties: {}
+        metaData:
+          type: object
+          properties:
+            viewMode:
+              type: string
+            defaultPageSize:
+              type: number
+        statistics:
+          type: [object, "null"]

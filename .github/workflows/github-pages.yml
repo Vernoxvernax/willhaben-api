@@ -1,0 +1,61 @@
+name: "Publish API Documentation on Github Pages"
+
+on:
+  push:
+    paths:
+      - "openapi/**"
+      - "docs/**"
+      - "package.json"
+      - "package-lock.json"
+      - "redocly.yml"
+      - ".github/workflows/*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install npm and redocly-cli
+        run: |
+          sudo apt update
+          sudo apt install npm -y
+          npm i -g @redocly/cli@latest
+
+      - name: Lint
+        run: |
+          redocly lint openapi/openapi.yaml --extends=recommended-strict
+
+      - name: Bundle openapi.yaml
+        run: |
+          redocly bundle openapi/openapi.yaml -o docs/dist.json
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
