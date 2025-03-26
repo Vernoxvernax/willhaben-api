@@ -84,7 +84,7 @@ paths:
   /restapi/v2/storyblok/apps/{id}:
     get:
       operationId: "getStoryBlokByID"
-      summary: Unknown application
+      summary: getStoryBlokByID
       parameters:
         - name: user-agent
           in: header
@@ -151,7 +151,7 @@ paths:
   /v2/search/atz/seo/kaufen-und-verkaufen/verkaeuferprofil/{id}:
     get:
       operationId: getVerkaueferProfilByID
-      summary: Unknown application
+      summary: getVerkaueferProfilByID
       parameters:
         - name: user-agent
           in: header
@@ -242,8 +242,8 @@ paths:
 
   /restapi/v2/search/atz/seo/kaufen-und-verkaufen/marktplatz:
     get:
-      operationId: getMarkplatz
-      summary: Unknown application
+      operationId: getMarktplatz
+      summary: getMarktplatz
       parameters:
         - name: user-agent
           in: header
@@ -315,7 +315,7 @@ paths:
   /restapi/v2/imagesearch/atz:
     get:
       operationId: getATZImageSearch
-      summary: Unknown application
+      summary: getATZImageSearch
       parameters:
         - name: user-agent
           in: header
@@ -402,7 +402,7 @@ paths:
   /restapi/v2/sellerprofile/{id}/{id1}/profile:
     get:
       operationId: getSellerProfile
-      summary: Unknown application
+      summary: getSellerProfile
       parameters:
         - name: user-agent
           in: header
@@ -474,7 +474,7 @@ paths:
   /restapi/v2/search/atz/{id}/{id1}:
     get:
       operationId: getSearchATZ
-      summary: Unknown application
+      summary: getSearchATZ
       parameters:
         - name: user-agent
           in: header
@@ -550,8 +550,8 @@ paths:
 
   /restapi/v2/search/atz/seo/kaufen-und-verkaufen/marktplatz/{category}:
     get:
-      operationId: searchMarkplatzCategory
-      summary: Unknown application
+      operationId: searchMarktplatzCategory
+      summary: searchMarktplatzCategory
       parameters:
         - name: user-agent
           in: header
@@ -674,7 +674,7 @@ paths:
     get:
       operationId: getProductByID
       description: "**Attention!** This request uses a different server url!"
-      summary: Unknown application
+      summary: getProductByID
       servers:
         - url: https://public.willhaben.at
       parameters:
@@ -743,7 +743,7 @@ paths:
   /restapi/v2/search/attributes:
     get:
       operationId: getAttributes
-      summary: Unknown application
+      summary: getAttributes
       parameters:
         - name: user-agent
           in: header
@@ -825,7 +825,7 @@ paths:
   /restapi/v2/recommendation/search/{id}/{id2}:
     get:
       operationId: getRecommendations
-      summary: Unknown application
+      summary: getRecommendations
       parameters:
         - name: user-agent
           in: header
