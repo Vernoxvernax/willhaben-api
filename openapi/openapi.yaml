@@ -15,7 +15,7 @@ paths:
   /restapi/v2/application-data:
     post:
       summary: Generate application token
-      description: "Instructions to create the request body -> [applicationTokenRequest.md](https://github.com/vernoxvernax/willhaben-api/blob/main/applicationTokenRequest.md)"
+      description: "Instructions to create the request body -> [applicationToken.md](https://github.com/vernoxvernax/willhaben-api/blob/main/applicationToken.md)"
       operationId: "application-data"
       parameters:
         - name: user-agent
