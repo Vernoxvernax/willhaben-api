@@ -8,7 +8,7 @@ info:
     name: MIT
     identifier: MIT
 servers:
-  - url: https://api.geizhals.net
+  - url: https://api.willhaben.at
 security:
   - ApiKeyAuth: []
 paths:
