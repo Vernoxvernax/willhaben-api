@@ -638,7 +638,7 @@ paths:
           in: query
           required: false
           schema:
-            type: string
+            type: boolean
         - name: chosenKeyword
           in: query
           required: false
