@@ -1057,7 +1057,7 @@ components:
                         searchConfigId:
                           type: string
               taggingData:
-                type: object
+                type: [object, "null"]
                 properties:
                   taggingNames:
                     type: object
@@ -1612,22 +1612,7 @@ components:
                     type: object
                     properties:
                       contextLink:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            description:
-                              type: string
-                            uri:
-                              type: string
-                            selected:
-                              type: boolean
-                            relativePath:
-                              type: string
-                            serviceName:
-                              type: string
+                        $ref: '#/components/schemas/ContextLink'
                   advertiserInfo:
                     type: object
                     properties:
@@ -1744,7 +1729,7 @@ components:
                       items:
                         type: string
                     navigatorValuesDisplayStyle:
-                      type: array
+                      type: [array, "null"]
                       items:
                         type: string
                     metadata:
@@ -1753,73 +1738,27 @@ components:
                         parameterName:
                           type: string
         searchExcludeList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         pagingLinksList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         sortOrderList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         searchContextLinks:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -1963,8 +1902,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         searchTitle:
           type: string
         searchSubTitle:
@@ -1981,7 +1919,7 @@ components:
             searchcount:
               type: number
             payliveryEnabled:
-              type: string
+              type: boolean
             vertical:
               type: string
             device:
@@ -2125,22 +2063,7 @@ components:
                     type: object
                     properties:
                       contextLink:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            description:
-                              type: string
-                            uri:
-                              type: string
-                            selected:
-                              type: boolean
-                            relativePath:
-                              type: string
-                            serviceName:
-                              type: string
+                        $ref: '#/components/schemas/ContextLink'
                   advertiserInfo:
                     type: object
                     properties:
@@ -2290,7 +2213,7 @@ components:
                       items:
                         type: string
                     navigatorValuesDisplayStyle:
-                      type: array
+                      type: [array, "null"]
                       items:
                         type: string
                     metadata:
@@ -2299,73 +2222,27 @@ components:
                         parameterName:
                           type: string
         searchExcludeList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         pagingLinksList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         sortOrderList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         searchContextLinks:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -2514,22 +2391,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         searchTitle:
           type: string
         searchSubTitle:
@@ -2540,11 +2402,11 @@ components:
             pagetype:
               type: string
             search_alert:
-              type: string
+              type: boolean
             searchcount:
               type: number
             payliveryEnabled:
-              type: string
+              type: boolean
             vertical:
               type: string
             bap_level0:
@@ -2601,10 +2463,60 @@ components:
             properties:
               type:
                 type: string
+              formattedPrice:
+                type: [string, "null"]
+              deliveryCosts:
+                type: [string, "null"]
+              crossedOutDeliveryCosts:
+                type: [string, "null"]
+              deliveryIconUrl:
+                type: [string, "null"]
+              deliveryText:
+                type: [string, "null"]
+              buyerProtectionInfo:
+                type: [string, "null"]
+              subtitle:
+                type: [string, "null"]
+              ratingInfoModalDTO:
+                type: [object, "null"]
+                properties:
+                  headline:
+                    type: string
+                  text:
+                    type: string
+                  subHeadline:
+                    type: string
+                  subText:
+                    type: string
+                  infoHeadline:
+                    type: string
+                  infoText:
+                    type: string
+                  buttonText:
+                    type: string
+              userSince:
+                type: [string, "null"]
+              items:
+                type: [array, "null"]
+                items:
+                  oneOf:
+                    - type: string
+                    - type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      description:
+                        type: string
+                      value:
+                        type: string
               title:
                 type: string
               listIndex:
                 type: number
+              teaser:
+                type: [string, "null"]
               contextLinkList:
                 type: array
                 items: {}
@@ -2645,7 +2557,7 @@ components:
         productId:
           type: number
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -2686,11 +2598,11 @@ components:
                     category_level_1:
                       type: string
                     region_level_id_2:
-                      type: string
+                      type: [string, "null"]
                     category_level_3:
-                      type: string
+                      type: [string, "null"]
                     region_level_id_3:
-                      type: string
+                      type: [string, "null"]
                     category_level_2:
                       type: string
                     seller_name:
@@ -2706,9 +2618,9 @@ components:
                     seller_uuid:
                       type: string
                     region_level_2:
-                      type: string
+                      type: [string, "null"]
                     region_level_3:
-                      type: string
+                      type: [string, "null"]
                     seller_id:
                       type: string
                     region_level_1:
@@ -2716,7 +2628,7 @@ components:
                     ad_type_id:
                       type: string
                     category_level_id_3:
-                      type: string
+                      type: [string, "null"]
                     category_level_id_2:
                       type: string
                     category_level_id_1:
@@ -2761,11 +2673,11 @@ components:
                         type: object
                         properties:
                           postalCode:
-                            type: string
+                            type: [string, "null"]
                           addressLocality:
-                            type: string
+                            type: [string, "null"]
                           addressRegion:
-                            type: string
+                            type: [string, "null"]
                           addressCountry:
                             type: string
                       price:
@@ -2805,7 +2717,7 @@ components:
               items:
                 type: string
             AdImage:
-              type: string
+              type: boolean
             description:
               type: string
             vertical:
@@ -2815,13 +2727,15 @@ components:
             bap_level1:
               type: string
             bap_level2:
-              type: string
+              type: [string, "null"]
+            bap_level3:
+              type: [string, "null"]
             price:
               type: number
             willhabencode:
               type: string
             payliveryEnabled:
-              type: string
+              type: boolean
             state:
               type: array
               items:
@@ -2833,7 +2747,7 @@ components:
             heading:
               type: string
             postcode:
-              type: array
+              type: [array, "null"]
               items:
                 type: number
             pt1:
@@ -2843,11 +2757,11 @@ components:
             pt5:
               type: number
             Marke:
-              type: array
+              type: [array, "null"]
               items:
                 type: string
             isAdSavedInFolder:
-              type: string
+              type: boolean
             district:
               type: array
               items:
@@ -2876,7 +2790,7 @@ components:
             adimageurl:
               type: string
             city:
-              type: array
+              type: [array, "null"]
               items:
                 type: string
             AdImage:
@@ -2918,7 +2832,7 @@ components:
             pt5:
               type: number
             Marke:
-              type: array
+              type: [array, "null"]
               items:
                 type: string
             isAdSavedInFolder:
@@ -2995,7 +2909,7 @@ components:
                 price:
                   type: string
                 image:
-                  type: string
+                  type: [string, "null"]
             sellerInfo:
               type: object
               properties:
@@ -3120,22 +3034,7 @@ components:
                     type: object
                     properties:
                       contextLink:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            description:
-                              type: string
-                            uri:
-                              type: string
-                            selected:
-                              type: boolean
-                            relativePath:
-                              type: string
-                            serviceName:
-                              type: string
+                        $ref: '#/components/schemas/ContextLink'
                   advertiserInfo:
                     type: object
                     properties:
@@ -3244,7 +3143,7 @@ components:
                       items:
                         type: string
                     navigatorValuesDisplayStyle:
-                      type: array
+                      type: [array, "null"]
                       items:
                         type: string
                     metadata:
@@ -3253,73 +3152,27 @@ components:
                         parameterName:
                           type: string
         searchExcludeList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         pagingLinksList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         sortOrderList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         searchContextLinks:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -3456,8 +3309,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         searchTitle:
           type: string
         searchSubTitle:
@@ -3472,7 +3324,7 @@ components:
             searchcount:
               type: number
             payliveryEnabled:
-              type: string
+              type: boolean
             vertical:
               type: string
             device:
@@ -3630,22 +3482,7 @@ components:
                     type: object
                     properties:
                       contextLink:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            description:
-                              type: string
-                            uri:
-                              type: string
-                            selected:
-                              type: boolean
-                            relativePath:
-                              type: string
-                            serviceName:
-                              type: string
+                        $ref: '#/components/schemas/ContextLink'
                   advertiserInfo:
                     type: object
                     properties:
@@ -3679,45 +3516,27 @@ components:
           type: array
           items: {}
         searchExcludeList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         pagingLinksList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         sortOrderList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         searchContextLinks:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -3752,8 +3571,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         searchTitle:
           type: string
         searchSubTitle:
@@ -3813,22 +3631,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         sellerFollowerDTO:
           type: object
           properties:
@@ -3955,22 +3758,7 @@ components:
                     type: object
                     properties:
                       contextLink:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            description:
-                              type: string
-                            uri:
-                              type: string
-                            selected:
-                              type: boolean
-                            relativePath:
-                              type: string
-                            serviceName:
-                              type: string
+                        $ref: '#/components/schemas/ContextLink'
                   advertiserInfo:
                     type: object
                     properties:
@@ -4087,7 +3875,7 @@ components:
                       items:
                         type: string
                     navigatorValuesDisplayStyle:
-                      type: array
+                      type: [array, "null"]
                       items:
                         type: string
                     metadata:
@@ -4096,73 +3884,27 @@ components:
                         parameterName:
                           type: string
         searchExcludeList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         pagingLinksList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         sortOrderList:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         searchContextLinks:
-          type: object
+          type: [object, "null"]
           properties:
             contextLink:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  description:
-                    type: string
-                  uri:
-                    type: string
-                  selected:
-                    type: boolean
-                  relativePath:
-                    type: string
-                  serviceName:
-                    type: string
+              $ref: '#/components/schemas/ContextLink'
         taggingData:
-          type: object
+          type: [object, "null"]
           properties:
             taggingNames:
               type: object
@@ -4299,8 +4041,7 @@ components:
           type: object
           properties:
             contextLink:
-              type: array
-              items: {}
+              $ref: '#/components/schemas/ContextLink'
         searchTitle:
           type: string
         searchSubTitle:
@@ -4315,7 +4056,7 @@ components:
             searchcount:
               type: number
             payliveryEnabled:
-              type: string
+              type: boolean
             vertical:
               type: string
             device:
