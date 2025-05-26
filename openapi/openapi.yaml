@@ -129,6 +129,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
@@ -196,6 +201,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
@@ -288,6 +298,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: sort
           in: query
           required: false
@@ -360,6 +375,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: adId
           in: query
           required: false
@@ -447,6 +467,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
@@ -519,6 +544,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
@@ -596,6 +626,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: category
           in: path
           required: false
@@ -721,6 +756,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
@@ -788,6 +828,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: categoryId
           in: query
           required: false
@@ -870,6 +915,11 @@ paths:
           schema:
             type: integer
             example: [20130527022532]
+        - name: x-wh-application-token
+          in: header
+          required: true
+          schema:
+            type: string
         - name: id
           in: path
           required: true
