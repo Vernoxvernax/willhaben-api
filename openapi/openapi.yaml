@@ -713,10 +713,14 @@ paths:
   /atdetail/v1/{id}:
     get:
       operationId: getProductByID
-      description: "**Attention!** This request uses a different server url!"
+      description: |-
+        **Attention!** This request uses a different server url!
+
+        **Rate-Limits:** 30 requests every 5 minutes. (rolling window)
+
       summary: getProductByID
       servers:
-        - url: https://public.willhaben.at
+        - url: https://publicapi.willhaben.at
       parameters:
         - name: user-agent
           in: header
@@ -738,7 +742,7 @@ paths:
             example: ["application/json"]
         - name: x-wh-date
           in: header
-          required: false
+          required: true
           schema:
             type: string
             format: date-time
@@ -757,7 +761,7 @@ paths:
             format: uuid
         - name: x-wh-security-version
           in: header
-          required: false
+          required: true
           schema:
             type: integer
             example: [20130527022532]
@@ -784,6 +788,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Unauthorized'
+        '404':
+          description: Not Found
+        '429':
+          description: Too Many Request
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailable'
 
   /restapi/v2/search/attributes:
     get:
@@ -961,6 +975,13 @@ components:
       in: header
       name: "x-wh-application-token"
   schemas:
+    ServiceUnavailable:
+      type: object
+      properties:
+        title:
+          type: string
+        message:
+          type: string
     applicationTokenRequest:
       type: object
       properties:
