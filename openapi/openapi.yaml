@@ -2517,6 +2517,8 @@ components:
                 type: number
               teaser:
                 type: [string, "null"]
+              remainingText:
+                type: [string, "null"]
               contextLinkList:
                 type: array
                 items: {}
