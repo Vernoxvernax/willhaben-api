@@ -669,6 +669,11 @@ paths:
           required: false
           schema:
             type: number
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: number
         - name: isNavigation
           in: query
           required: false
