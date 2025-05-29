@@ -2271,7 +2271,7 @@ components:
                     vertical_id:
                       type: string
                     category_level_id_2:
-                      type: string
+                      type: [string, "null"]
                     vertical:
                       type: string
                     category_level_id_1:
@@ -2279,13 +2279,13 @@ components:
                     source:
                       type: string
                     search_terms:
-                      type: string
+                      type: [string, "null"]
                     category_level_1:
                       type: string
                     environment:
                       type: string
                     category_level_2:
-                      type: string
+                      type: [string, "null"]
                     category_level_max:
                       type: string
                     search_results_displaycount:
@@ -2401,20 +2401,14 @@ components:
           properties:
             pagetype:
               type: string
-            search_alert:
-              type: boolean
-            searchcount:
-              type: number
-            payliveryEnabled:
-              type: boolean
             vertical:
               type: string
             bap_level0:
               type: string
             bap_level1:
-              type: string
-            keyword:
-              type: string
+              type: [string, "null"]
+            bap_level2:
+              type: [string, "null"]
             device:
               type: string
         advertisingParametersV2:
@@ -2435,9 +2429,11 @@ components:
             bap_level0:
               type: string
             bap_level1:
-              type: string
+              type: [string, "null"]
+            bap_level2:
+              type: [string, "null"]
             keyword:
-              type: string
+              type: [string, "null"]
             device:
               type: string
         dmpUserIdentities:
