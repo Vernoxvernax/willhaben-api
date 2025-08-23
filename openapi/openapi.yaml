@@ -254,6 +254,8 @@ paths:
     get:
       operationId: getATZImageSearch
       summary: getATZImageSearch
+      tags: [ "Search" ]
+      description: "Search for other products which look similar to one visible on the specified image."
       parameters:
         - name: user-agent
           in: header
@@ -423,6 +425,7 @@ paths:
     get:
       operationId: getSearchATZ
       summary: getSearchATZ
+      tags: [ "Search" ]
       parameters:
         - name: user-agent
           in: header
@@ -505,6 +508,7 @@ paths:
     get:
       operationId: searchMarktplatzCategory
       summary: searchMarktplatzCategory
+      tags: [ "Search" ]
       parameters:
         - name: user-agent
           in: header
@@ -882,8 +886,9 @@ paths:
   /atdetail/v1/{id}:
     get:
       operationId: getProductByID
+      tags: [ "Product Page" ]
       description: |-
-        **Attention!** This request uses a different server url!
+        **Attention!** This request uses a different server domain!
 
         **Rate-Limits:** 30 requests every 5 minutes. (rolling window)
 
@@ -2088,7 +2093,7 @@ components:
             searchcount:
               type: number
             payliveryEnabled:
-              type: boolean
+              type: string
             vertical:
               type: string
             device:
@@ -3071,7 +3076,7 @@ components:
             willhabencode:
               type: string
             payliveryEnabled:
-              type: boolean
+              type: [string, "null"]
             state:
               type: array
               items:
@@ -3265,6 +3270,8 @@ components:
             additionalInfo:
               type: [object, "null"]
         commercialAd:
+          type: boolean
+        payliveryEnabled:
           type: boolean
 
     getATZImageSearch:
