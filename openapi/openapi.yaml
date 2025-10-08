@@ -48,7 +48,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -116,7 +116,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -188,7 +188,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -287,7 +287,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -379,7 +379,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -457,7 +457,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -540,7 +540,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -673,7 +673,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -926,7 +926,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -1008,7 +1008,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -1095,7 +1095,7 @@ paths:
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;7.6.0;responsive_app"]
+            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
         - name: x-wh-visitor-id
           in: header
           required: false
