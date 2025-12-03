@@ -28,4 +28,4 @@ If you want to help me document the rest of the endpoints or potential future ch
 
 ___
 
-See [**Redocly/openapi-starter**](https://github.com/Redocly/openapi-starter) for more information about to build the documentation with redocly.
+See [**Redocly/openapi-starter**](https://github.com/Redocly/openapi-starter) for more information about how to build the documentation with redocly.

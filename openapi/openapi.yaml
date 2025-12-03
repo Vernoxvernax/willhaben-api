@@ -23,32 +23,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -60,7 +60,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
       requestBody:
         required: true
         content:
@@ -91,32 +91,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -128,7 +128,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -163,32 +163,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -200,7 +200,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -262,32 +262,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -299,7 +299,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -354,32 +354,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -391,7 +391,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -432,32 +432,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -469,7 +469,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -515,32 +515,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -552,7 +552,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -648,32 +648,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -685,7 +685,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -901,32 +901,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: true
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -938,7 +938,7 @@ paths:
           required: true
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -983,32 +983,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -1020,7 +1020,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
@@ -1070,32 +1070,32 @@ paths:
           required: false
           schema:
             type: string
-            example: ["willhaben/607502 okhttp/4.12.0 Android/10"]
+            example: "willhaben/607502 okhttp/4.12.0 Android/10"
         - name: accept
           in: header
           required: false
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: content-type
           in: header
           required: true
           schema:
             type: string
-            example: ["application/json"]
+            example: "application/json"
         - name: x-wh-date
           in: header
           required: false
           schema:
             type: string
             format: date-time
-            example: ["1970-01-01T01:00:01+0100"]
+            example: "1970-01-01T01:00:01+0100"
         - name: x-wh-client
           in: header
           required: true
           schema:
             type: string
-            example: ["api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"]
+            example: "api@tailored-apps.com;willhabenapp;android;8.15.0;responsive_app"
         - name: x-wh-visitor-id
           in: header
           required: false
@@ -1107,7 +1107,7 @@ paths:
           required: false
           schema:
             type: integer
-            example: [20130527022532]
+            example: 20130527022532
         - name: x-wh-application-token
           in: header
           required: true
