@@ -623,6 +623,11 @@ paths:
           schema:
             type: integer
             description: "Enables the use of category specific filters. You can find all possible filters in the response of a request to this endpoint. Look for the keyword `ATTRIBUTE_TREE`"
+        - name: ISPRIVATE
+          in: query
+          required: false
+          schema:
+            type: integer
       responses:
         '200':
           description: Operation successful. Returning a getMarktplatz object.
@@ -2259,7 +2264,96 @@ components:
                   items: {}
                 groupedPossibleValues:
                   type: array
-                  items: {}
+                  items:
+                    type: object
+                    properties:
+                      label:
+                        type: [string, "null"]
+                      possibleValues:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            label:
+                              type: string
+                            prePostTextInfo:
+                              type: [object, "null"]
+                              properties:
+                                preText:
+                                  type: [string, "null"]
+                                middleText:
+                                  type: ["null"]
+                                postText:
+                                  type: [string, "null"]
+                            images:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  description:
+                                    type: string
+                                  uri:
+                                    type: string
+                                  selected:
+                                    type: boolean
+                                  relativePath:
+                                    type: string
+                                  serviceName:
+                                    type: string
+                            urlParamRepresentationForValue:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  urlParameterName:
+                                    type: string
+                                  navigatorUrlParameterType:
+                                    type: string
+                                  value:
+                                    type: string
+                            parent:
+                              type: ["null"]
+                            parentId:
+                              type: ["null"]
+                            parentLabel:
+                              type: [string, "null"]
+                            searchLink:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                description:
+                                  type: string
+                                uri:
+                                  type: string
+                                selected:
+                                  type: boolean
+                                relativePath:
+                                  type: string
+                                serviceName:
+                                  type: string
+                            webLink:
+                              type: [object, "null"]
+                              properties:
+                                id:
+                                  type: string
+                                description:
+                                  type: string
+                                uri:
+                                  type: string
+                                selected:
+                                  type: boolean
+                                relativePath:
+                                  type: string
+                                serviceName:
+                                  type: string
+                            hits:
+                              type: integer
+                            metaTags:
+                              type: array
+                              items: {}
                 selectedValues:
                   type: array
                   items:
@@ -2422,13 +2516,13 @@ components:
                 vertical:
                   type: string
                 category_level_id_1:
-                  type: string
+                  type: [string, "null"]
                 source:
                   type: string
                 search_terms:
                   type: [string, "null"]
                 category_level_1:
-                  type: string
+                  type: [string, "null"]
                 environment:
                   type: string
                 category_level_2:
