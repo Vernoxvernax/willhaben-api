@@ -2803,7 +2803,7 @@ components:
             search_alert:
               type: boolean
             gender:
-              type: string
+              type: [string, "null"]
             searchcount:
               type: number
             payliveryEnabled:
@@ -2815,9 +2815,11 @@ components:
             keyword:
               type: [string, "null"]
             model_level0:
+              type: [string, "null"]
+            motor_level0:
               type: string
             age:
-              type: number
+              type: [number, "null"]
             motorcondition:
               type: [array, "null"]
               items:
